@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+{% block contaner %}
+<!-- register section starts  -->
+
+<section class="form-container">
+
+   <form action="/user_register/" method="post">
+      {% csrf_token %}
+      <h3>create an account!</h3>
+      <input type="text" name="username" id='username' required maxlength="50" placeholder="enter your name" class="box">
+      <input type="email" name="email" id="email" required maxlength="50" placeholder="enter your email" class="box">
+      <input type="password" name="password" id="password" required maxlength="50" placeholder="enter your password" class="box">
+      {% comment %} <input type="password" name="password2" id="password2" required maxlength="50" placeholder="conform your password" class="box"> {% endcomment %}
+         <p>already have an account? <a href="/user_login/">login now</a></p>
+      <input type="submit" value="register now" name="submit" class="btn">
+   </form>
+
+</section>
+
+<!-- register section ends --> 
+{% comment %} 
+<section class="form-container">
+
+   <form action="/user_register/" method="post">
+      {% csrf_token %}
+      <h3>create an account!</h3>
+      {% for field in form %}
+      <div class=" box" >
+          {{ field.label_tag }} {{ field }}
+      </div>
+  {% endfor %}
+            <p>already have an account? <a href="/user_login/">login now</a></p>
+      <input type="submit" value="register now" name="submit" class="btn">
+   </form>
+
+</section>
+
+<!-- register section ends --> 
+{% endcomment %}
+{% endblock contaner %}
